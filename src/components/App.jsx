@@ -175,14 +175,16 @@ function App() {
 
     if (showRoundIntro && rounds.length > 0 && rounds[currentRoundIndex]) {
       return (
-        <div className="flex min-h-screen items-center justify-center">
-          <div className="border-border flex h-[350px] w-full max-w-3xl flex-col border border-2 bg-white text-left shadow-md">
-            <p className="text-md text-textColor ml-4 mt-2 p-8 font-bold uppercase">
-              ACTIVITY TWO
-            </p>
-            <p className="text-textColor ml-4 p-8 text-3xl font-bold uppercase">
-              {rounds[currentRoundIndex].round_title}
-            </p>
+        <div className="bg-blue w-full">
+          <div className="flex min-h-screen items-center justify-center">
+            <div className="border-border flex h-[350px] w-full max-w-3xl flex-col border border-2 bg-white text-left shadow-md">
+              <p className="text-md text-textColor ml-4 mt-2 p-8 font-bold uppercase">
+                ACTIVITY TWO
+              </p>
+              <p className="text-textColor ml-4 p-8 text-3xl font-bold uppercase">
+                {rounds[currentRoundIndex].round_title}
+              </p>
+            </div>
           </div>
         </div>
       )
