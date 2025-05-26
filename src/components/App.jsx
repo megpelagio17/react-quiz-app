@@ -38,7 +38,12 @@ function App() {
     setIsLoading(true)
 
     try {
-      const response = await axios.get('/api/interview.mock.data/payload.json')
+      const basePath =
+        import.meta.env.MODE === 'development'
+          ? '/payload.json'
+          : '/react-quiz-app/payload.json'
+
+      const response = await axios.get(basePath)
       const activities = response.data.activities
 
       if (selectedActivity === 'one') {
