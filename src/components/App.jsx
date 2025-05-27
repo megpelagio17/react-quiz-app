@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ActivitySelector from './ActivitySelector'
@@ -9,7 +10,6 @@ function App() {
   const [quizData, setQuizData] = useState(null)
   const [questions, setQuestions] = useState([])
   const [current, setCurrent] = useState(0)
-  const [score, setScore] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -38,10 +38,7 @@ function App() {
     setIsLoading(true)
 
     try {
-      const basePath =
-        import.meta.env.MODE === 'development'
-          ? '/payload.json'
-          : '/react-quiz-app/payload.json'
+      const basePath = `${import.meta.env.BASE_URL}payload.json`
 
       const response = await axios.get(basePath)
       const activities = response.data.activities
@@ -177,7 +174,7 @@ function App() {
       return (
         <div className="bg-blue w-full">
           <div className="flex min-h-screen items-center justify-center">
-            <div className="border-border flex h-[350px] w-full max-w-3xl flex-col border border-2 bg-white text-left shadow-md">
+            <div className="border-border flex h-[350px] w-full max-w-3xl flex-col border-2 bg-white text-left shadow-md">
               <p className="text-md text-textColor ml-4 mt-2 p-8 font-bold uppercase">
                 ACTIVITY TWO
               </p>
